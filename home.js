@@ -1,4 +1,17 @@
 
+
+const showLoading = () => {
+    const loadingSpinner =document.querySelector('#loadSpinner');
+    loadingSpinner.classList.remove('hidden');
+    loadingSpinner.classList.add('flex');
+    document.querySelector('#issue-container').classList.add('hidden')
+};
+const endLoading = () => {
+    const loadingSpinner =document.querySelector('#loadSpinner');
+    loadingSpinner.classList.add('hidden');
+    loadingSpinner.classList.remove('flex');
+    document.querySelector('#issue-container').classList.remove('hidden')
+};
 // toggle 
 const buttonToggling = (id) => {
 
@@ -25,16 +38,18 @@ const buttonToggling = (id) => {
 
 
  const loadAllIssues = async () => {
-
+    showLoading();
     const url = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
     const res = await fetch(url);
     const data = await res.json();
-   
+    
     displayAllIssues(data.data);
     buttonToggling('all-btn');
+    endLoading();
 
  };
  const loadSelectiveIssues = async (currentStatus) => {
+    showLoading();
      let open = [];
      let closed = [];
     const url = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
@@ -65,15 +80,17 @@ const buttonToggling = (id) => {
         displayClosed(closed);
         issueCount.innerText = closed.length;
         buttonToggling('closed-btn');
-    }
+    };
+    endLoading();
     
  };
 const loadsearchIssues = async (searchText) => {
-    
+    showLoading();
     const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`;
     const res = await fetch(url);
     const data = await res.json();
     displayAllIssues(data.data);
+    endLoading();
 };
 
 const soloIssues = async (id) =>{
@@ -381,7 +398,7 @@ const displayModal = (d) => {
               myColor = 'bg-green-600'
             }
             else{
-              myColor = 'bg-red-600'
+              myColor = 'bg-purple-600'
             }
 
             return `<button class="border ${buttonClasses.join(' ')}  font-medium rounded-2xl p-1"> ${label} </button>` });
@@ -396,7 +413,7 @@ const displayModal = (d) => {
                            <div class="heading-modal space-y-2">
                                 <h2 class="text-2xl font-bold">${d.title}</h2>
                                 <div class="opening-modal-head flex items-center gap-4">
-                                    <button class="${myColor} rounded-2xl font-light text-sm px-1 text-white">${d.status === 'open' ? 'Opened': 'Closed'}</button>
+                                    <button class="${myColor} rounded-2xl font-light text-sm px-1 text-white ">${d.status === 'open' ? 'Opened': 'Closed'}</button>
                                     <p class="flex items-center gap-2">
                                         <i class="fa-solid fa-circle text-[4px]"></i>
                                         <span class="opened-by-head   text-[12px] font-[400px] text-[#64748bFF]"> ${d.status === 'open' ? 'Opened': 'Closed'} by ${d.author? d.author.replace('_'," ").toUpperCase(): 'NO NAME'}</span>
