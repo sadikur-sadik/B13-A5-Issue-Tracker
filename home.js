@@ -399,7 +399,7 @@ const displayModal = (d) => {
                                     <button class="${myColor} rounded-2xl font-light text-sm px-1 text-white">${d.status === 'open' ? 'Opened': 'Closed'}</button>
                                     <p class="flex items-center gap-2">
                                         <i class="fa-solid fa-circle text-[4px]"></i>
-                                        <span class="opened-by-head   text-[12px] font-[400px] text-[#64748bFF]"> ${d.status === 'open' ? 'Opened': 'Closed'} by ${d.assignee? d.assignee.replace('_'," ").toUpperCase(): 'NO NAME'}</span>
+                                        <span class="opened-by-head   text-[12px] font-[400px] text-[#64748bFF]"> ${d.status === 'open' ? 'Opened': 'Closed'} by ${d.author? d.author.replace('_'," ").toUpperCase(): 'NO NAME'}</span>
                                     </p>
                                     <p class="flex items-center gap-2">
                                         <i class="fa-solid fa-circle text-[4px]"></i>
