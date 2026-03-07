@@ -44,9 +44,9 @@
 
     <main class="space-y-5 max-w-[1300px] mx-auto mt-[60px]">
         <div class="space-x-2">
-            <button id="btn-all" class="btn bg-[#4a00ffFF] text-white border rounded-md w-[120px] h-10">All</button>
-            <button id="btn-open"  class="btn  border  rounded-xl w-[120px] h-10">Open</button>
-            <button id="btn-closed"  class="btn  border rounded-xl w-[120px] h-10">Closed</button>
+            <button id="btn-all" onclick="loadAllIssues()" class="btn bg-[#4a00ffFF] text-white border rounded-md w-[120px] h-10">All</button>
+            <button id="btn-open"   onclick="loadSelectiveIssues('open')"  class="btn  border  rounded-xl w-[120px] h-10">Open</button>
+            <button id="btn-closed" onclick="loadSelectiveIssues('closed')" class="btn  border rounded-xl w-[120px] h-10">Closed</button>
         </div>
         <div class="rounded-xl shadow-2xl flex justify-between items-center p-6">
             <div class="flex items-center justify-center gap-2">
@@ -54,7 +54,7 @@
                     <img class="w-full h-full" src="./assets/Aperture.png" alt="">
                 </div>
                 <div class="flex flex-col gap-0">
-                    <p class="issue-count font-semibold text-xl">50 Issues</p>
+                    <p class="issue-count font-semibold text-xl"><span id="issue-count">50</span> Issues</p>
                     <p class="text-gray-500">Track and manage your project issues</p>
                 </div>
             </div>
