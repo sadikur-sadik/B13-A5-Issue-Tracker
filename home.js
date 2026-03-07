@@ -33,9 +33,25 @@
         else if(d.priority === 'medium') { priorityColor.push('border-yellow-600','bg-yellow-100', 'text-yellow-600 ')  }
         else{ priorityColor.push('border-gray-800','bg-gray-300', 'text-gray-800 ')  }
 
+        
+
+        const buttonsLabel = d.labels.map((label) => { 
+            let buttonClasses = [];
+            if(label === 'bug'){ buttonClasses.push('border-red-500' , 'bg-red-100' , 'text-red-500') }
+            else if(label === 'enhancement' ){buttonClasses.push('border-green-500' , 'bg-green-100' , 'text-green-500')}
+            else if(label === 'help wanted'){buttonClasses.push('border-yellow-700' , 'bg-yellow-100' , 'text-yellow-700')}
+            else if(label === 'documentation'){buttonClasses.push('border-blue-500' , 'bg-blue-100' , 'text-blue-500')}
+            else if(label === 'good first issue'){buttonClasses.push('border-pink-500' , 'bg-pink-100' , 'text-pink-500')}
+
+            return `<button class="border ${buttonClasses.join(' ')}  font-medium rounded-2xl p-1"> ${label} </button>` });
+        
+        const buttons = buttonsLabel.join(' ')
+
+
+        // HTML GENERATION
 
         issueContainer.innerHTML += `
-                    <div id="card" class="rounded-lg w-[256.5px] shadow-2xl border border-gray-50 border-t-6 ${brColor}" >
+                    <div id="card" class="rounded-lg w-[300px] shadow-2xl border border-gray-50 border-t-6 ${brColor}" >
                 <div class="space-y-3 p-4">
                     <div class="flex justify-between items-center gap-3">
                         <div class="w-8 h-8">
@@ -49,12 +65,7 @@
                             ${d.description}
                         </p>
                         <div class="space-x-1 h-6">
-                            <button  class="border border-red-600 text-red-600 bg-red-100 px-1 w-20 rounded-4xl">
-                                Bug
-                            </button>
-                            <button  class= " border border-yellow-600 text-red-400 bg-yellow-200 px-1 font-medium rounded-4xl">
-                                Help Wanted
-                            </button>
+                            ${buttons}
                         </div>
                     </div>
                 </div>
