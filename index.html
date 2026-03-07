@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issues Tracker</title>
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+
+    <!-- FavIcon -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google Font  -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind And Daisy UI  -->
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+        <section class="w-[520px]  mx-auto mt-50  shadow-2xl rounded-2xl">
+            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box  border p-8 space-y-6">
+                <div class="img h-[100px] w-[100px] mx-auto">
+                    <img src="./assets/github-logo.png" alt="" srcset="">
+                </div>
+                <div class="text-center">
+                    <h1 class="text-2xl font-bold">GitHub Issues Tracker</h1>
+                    <p class="text-[#64748bFF] text-[16px] font-[400px]">Sign in to manage your issues</p>
+                </div>
+                
+                <div class="space-y-2">
+                <label class="label text-black font-semibold text-[16px]">Username</label>
+                <input type="text" id="username" class="input w-full" placeholder="Enter Username" /></div>
+                  
+                <div class="space-y-2">
+                <label class="label text-black font-semibold text-[16px]">Password</label>
+                <input type="password" id="password" class="input w-full" placeholder="Enter Password" /></div>
+
+                <button class="login btn btn-neutral mt-4">Login</button>
+                
+                <p class="failed text-red-500"></p>
+                <div class="flex items-center">
+                    <hr class="w-[200px] text-[#e4e4e7FF]"> <span> OR </span> <hr class="w-[200px] text-[#e4e4e7FF]">
+                </div>
+                <div class="flex flex-col justify-between items-center gap-5">
+                    <p class="text-[#64748bFF] text-[16px] font-[400px]">Demo Credentials:</p>
+                    <div>
+                        <p class=" text-[20px]"><span class="font-semibold text-black ">Username:</span>admin</p>
+                        <p class=" text-[20px]"><span class="font-semibold text-black ">Password:</span>admin123</p>
+                    </div>
+                </div>
+            </fieldset>
+        </section>
+
+
+
+    <script src="./script.js"></script>
+</body>
+</html>

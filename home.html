@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issues Tracker</title>
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+
+    <!-- FavIcon -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google Font  -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind And Daisy UI  -->
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-[#f8fafcFF]">
+    <header class="max-w-[1600px] mx-auto">
+        <div class="navbar bg-base-100 shadow-sm w-fulll">
+            <div class="flex-1">
+              <div class="flex gap-2 items-center">
+                <div class="h-9 w-9"><img src="./assets/github-logo.png" alt="" srcset=""></div>
+                <h1 class="text-2xl font-semibold">GitHub Issues Tracker</h1>
+              </div>
+            </div>
+            <div class="flex gap-3 items-center">
+                <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-[300px] md:h-10" />
+                <div class="dropdown dropdown-end">
+                    <button class=" bg-[#4a00ffFF] text-white px-4 py-2 font-semibold rounded-md">+New Issue</button>
+                <ul
+                    tabindex="-1"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                    <li>
+                    <a class="justify-between">
+                        Profile
+                        <span class="badge">New</span>
+                    </a>
+                    </li>
+                    <li><a>Settings</a></li>
+                    <li><a>Logout</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script src="./home.js"></script>
+</body>
+</html>
