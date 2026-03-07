@@ -1,0 +1,111 @@
+ const loadAllIssues = async () => {
+
+    const url = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data.data)
+    displayAllIssues(data.data);
+
+ };
+
+ const displayAllIssues = (data) => {
+    const openImage = '<img class="w-full h-full" src="./assets/Open-Status.png" alt="" ></img>';
+    const closedImage = '<img class="w-full h-full" src="./assets/Closed- Status .png" alt="">';
+    
+    const issueContainer = document.querySelector('#issue-container');
+    
+    issueContainer.innerHTML = '';
+
+    data.forEach(d => {
+        
+        let brColor = '';
+
+        if(d.status === 'open'){
+            brColor = 'border-t-green-500';
+        }
+        else{
+            brColor = 'border-t-purple-500';
+        };
+
+        let priorityColor = [];
+
+        if(d.priority === 'high'){ priorityColor.push('border-red-600','bg-red-100', 'text-red-600 ') }
+        else if(d.priority === 'medium') { priorityColor.push('border-yellow-600','bg-yellow-100', 'text-yellow-600 ')  }
+        else{ priorityColor.push('border-gray-800','bg-gray-300', 'text-gray-800 ')  }
+
+
+        issueContainer.innerHTML += `
+                    <div id="card" class="rounded-lg w-[256.5px] shadow-2xl border border-gray-50 border-t-6 ${brColor}" >
+                <div class="space-y-3 p-4">
+                    <div class="flex justify-between items-center gap-3">
+                        <div class="w-8 h-8">
+                            ${d.status === 'open' ? openImage : closedImage}
+                        </div>
+                        <button class="${priorityColor.join(' ')}  p-1 w-20 rounded-4xl">${d.priority}</button>
+                    </div>
+                    <div class="space-y-3 h-[107px]">
+                        <h3 class="text-sm font-semibold h-[34px]">${d.title}</h3>
+                        <p class="text-[12px] font-[400px] text-[#64748bFF] line-clamp-2">
+                            ${d.description}
+                        </p>
+                        <div class="space-x-1 h-6">
+                            <button  class="border border-red-600 text-red-600 bg-red-100 px-1 w-20 rounded-4xl">
+                                Bug
+                            </button>
+                            <button  class= " border border-yellow-600 text-red-400 bg-yellow-200 px-1 font-medium rounded-4xl">
+                                Help Wanted
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <hr class="w-full my-3 border border-gray-400">
+                <div class="p-4 space-y-2 flex justify-between items-center">
+                    <div>
+                     <p class="text-[#64748bFF] font-[400px]">
+                        ${d.author ? d.author:'No Name'}
+                    </p>
+                    <p class="text-[#64748bFF] font-[400px]">
+                        1/7/2024
+                    </p>
+                    </div>
+                    <div>
+                     <p class="text-[#64748bFF] font-[400px]">
+                        ${d.assignee ? d.assignee : 'No Name'}
+                    </p>
+                    <p class="text-[#64748bFF] font-[400px]">
+                        1/7/2024
+                    </p>
+                    </div>
+                </div>
+            </div>
+
+
+        `;
+
+        
+    });
+
+
+};
+
+loadAllIssues();
+
+
+
+
+// "data": [
+// {
+// "id": 1,
+// "title": "Fix navigation menu on mobile devices",
+// "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
+// "status": "open",
+// "labels": [
+// "bug",
+// "help wanted"
+// ],
+// "priority": "high",
+// "author": "john_doe",
+// "assignee": "jane_smith",
+// "createdAt": "2024-01-15T10:30:00Z",
+// "updatedAt": "2024-01-15T10:30:00Z"
+// },

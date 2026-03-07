@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Issues Tracker</title>
+    <title>GitHub Issues Tracker || Home</title>
     <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
 
     <!-- FavIcon -->
@@ -33,25 +33,85 @@
             </div>
             <div class="flex gap-3 items-center">
                 <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-[300px] md:h-10" />
-                <div class="dropdown dropdown-end">
+                
                     <button class=" bg-[#4a00ffFF] text-white px-4 py-2 font-semibold rounded-md">+New Issue</button>
-                <ul
-                    tabindex="-1"
-                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                    <li>
-                    <a class="justify-between">
-                        Profile
-                        <span class="badge">New</span>
-                    </a>
-                    </li>
-                    <li><a>Settings</a></li>
-                    <li><a>Logout</a></li>
-                </ul>
-                </div>
+                
             </div>
         </div>
     </header>
 
-    <script src="./home.js"></script>
+    <!-- main -->
+
+    <main class="space-y-5 max-w-[1100px] mx-auto mt-[60px]">
+        <div class="space-x-2">
+            <button id="btn-all" class="btn bg-[#4a00ffFF] text-white border rounded-md w-[120px] h-10">All</button>
+            <button id="btn-open"  class="btn  border  rounded-xl w-[120px] h-10">Open</button>
+            <button id="btn-closed"  class="btn  border rounded-xl w-[120px] h-10">Closed</button>
+        </div>
+        <div class="rounded-xl shadow-2xl flex justify-between items-center p-6">
+            <div class="flex items-center justify-center gap-2">
+                <div class="w-[50px] h-[50px]">
+                    <img class="w-full h-full" src="./assets/Aperture.png" alt="">
+                </div>
+                <div class="flex flex-col gap-0">
+                    <p class="issue-count font-semibold text-xl">50 Issues</p>
+                    <p class="text-gray-500">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="flex items-center gap-2"><p class="bg-green-700 h-3 w-3 rounded-full"></p>Open</div>
+                <div class="flex items-center gap-2"><p class="bg-purple-700 h-3 w-3 rounded-full"></p>Closed</div>
+            </div>
+        </div>
+        <section id="issue-container" class="shadow-2xl p-6 grid grid-cols-4 gap-3">
+            <!-- <div id="card" class="rounded-lg w-[256.5px] shadow-2xl border border-gray-100 ">
+                <div class="space-y-3 p-4">
+                    <div class="flex justify-between items-center gap-3">
+                        <div class="w-8 h-8">
+                            <img class="w-full h-full" src="./assets/Open-Status.png" alt="" srcset="">
+                        </div>
+                        <button class="border-red-600 text-red-600 bg-red-100 p-1 w-20 rounded-4xl">High</button>
+                    </div>
+                    <div class="space-y-3 h-[107px]">
+                        <h3 class="text-sm font-semibold h-[34px]">Fix navigation menu on mobile devices</h3>
+                        <p class="text-[12px] font-[400px] text-[#64748bFF]">
+                            The navigation menu doesn't collapse properly on mobile devices...
+                        </p>
+                        <div class="space-x-1 h-6">
+                            <button  class="border border-red-600 text-red-600 bg-red-100 px-1 w-20 rounded-4xl">
+                                Bug
+                            </button>
+                            <button  class= " border border-yellow-600 text-red-400 bg-yellow-200 px-1 font-medium rounded-4xl">
+                                Help Wanted
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <hr class="w-full my-3 border border-gray-400">
+                <div class="p-4 space-y-2 flex justify-between items-center">
+                    <div>
+                     <p class="text-[#64748bFF] font-[400px]">
+                        #1 John
+                    </p>
+                    <p class="text-[#64748bFF] font-[400px]">
+                        1/7/2024
+                    </p>
+                    </div>
+                    <div>
+                     <p class="text-[#64748bFF] font-[400px]">
+                        #1 John
+                    </p>
+                    <p class="text-[#64748bFF] font-[400px]">
+                        1/7/2024
+                    </p>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+    </main>
+
+    <script src="./home.js">
+        
+    </script>
 </body>
 </html>
