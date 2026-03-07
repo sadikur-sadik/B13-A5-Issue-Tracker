@@ -1,4 +1,5 @@
-const issueCount = document.querySelector('#issue-count');
+
+
 
 // toggle 
 const buttonToggling = (id) => {
@@ -19,6 +20,7 @@ const buttonToggling = (id) => {
 
     changeBtn.classList.remove('bg-transparent' , 'text-black');
     changeBtn.classList.add('bg-[#4a00ffFF]' , 'text-white')
+
 
 
 }
@@ -54,7 +56,7 @@ const buttonToggling = (id) => {
         };
         
     });
-
+    const issueCount = document.querySelector('#issue-count');
     if(currentStatus === 'open'){
         displayOpen(open);
         issueCount.innerText = open.length;
@@ -68,9 +70,17 @@ const buttonToggling = (id) => {
     }
     
  };
-
+const loadsearchIssues = async (searchText) => {
+    
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayAllIssues(data.data);
+}
 
  const displayAllIssues = (data) => {
+    const issueCount = document.querySelector('#issue-count');
+    
     issueCount.innerText = data.length;
     const openImage = '<img class="w-full h-full" src="./assets/Open-Status.png" alt="" ></img>';
     const closedImage = '<img class="w-full h-full" src="./assets/Closed- Status .png" alt="">';
@@ -330,6 +340,16 @@ const displayClosed = (data) => {
 
 
 };
+
+document.querySelector('#search-issue').addEventListener('click' , ()=>{
+
+    const searchInp = document.querySelector('#search-issue-inp');
+    const searchValue = searchInp.value;
+
+    loadsearchIssues(searchValue);
+    
+
+});
 loadAllIssues();
 
 
