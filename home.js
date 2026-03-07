@@ -1,5 +1,28 @@
 const issueCount = document.querySelector('#issue-count');
 
+// toggle 
+const buttonToggling = (id) => {
+
+    const allBtn =document.querySelector('#all-btn');
+    const openBtn = document.querySelector('#open-btn');
+    const closedBtn = document.querySelector('#closed-btn');
+
+    allBtn.classList.remove('bg-[#4a00ffFF]' , 'text-white');
+    openBtn.classList.remove('bg-[#4a00ffFF]' , 'text-white');
+    closedBtn.classList.remove('bg-[#4a00ffFF]' , 'text-white');
+    allBtn.classList.add('bg-transparent' , 'text-black');
+    openBtn.classList.add('bg-transparent' , 'text-black');
+    closedBtn.classList.add('bg-transparent' , 'text-black');
+
+
+    const changeBtn = document.querySelector(`#${id}`);
+
+    changeBtn.classList.remove('bg-transparent' , 'text-black');
+    changeBtn.classList.add('bg-[#4a00ffFF]' , 'text-white')
+
+
+}
+
 
  const loadAllIssues = async () => {
 
@@ -8,6 +31,7 @@ const issueCount = document.querySelector('#issue-count');
     const data = await res.json();
    
     displayAllIssues(data.data);
+    buttonToggling('all-btn');
 
  };
  const loadSelectiveIssues = async (currentStatus) => {
@@ -34,11 +58,13 @@ const issueCount = document.querySelector('#issue-count');
     if(currentStatus === 'open'){
         displayOpen(open);
         issueCount.innerText = open.length;
+        buttonToggling('open-btn');
 
     }
     else{
         displayClosed(closed);
         issueCount.innerText = closed.length;
+        buttonToggling('closed-btn');
     }
     
  };
