@@ -394,12 +394,12 @@ const displayModal = (d) => {
                     <div class="modal-box m-8">
                         <div class="modal-designs space-y-4">
                            <div class="heading-modal space-y-2">
-                                <h2 class="text-2xl font-bold">${d.title}/h2>
+                                <h2 class="text-2xl font-bold">${d.title}</h2>
                                 <div class="opening-modal-head flex items-center gap-4">
                                     <button class="${myColor} rounded-2xl font-light text-sm px-1 text-white">${d.status === 'open' ? 'Opened': 'Closed'}</button>
                                     <p class="flex items-center gap-2">
                                         <i class="fa-solid fa-circle text-[4px]"></i>
-                                        <span class="opened-by-head   text-[12px] font-[400px] text-[#64748bFF]"> Opened by ${d.assignee? d.assignee.replace('_'," ").toUpperCase(): 'NO NAME'}</span>
+                                        <span class="opened-by-head   text-[12px] font-[400px] text-[#64748bFF]"> ${d.status === 'open' ? 'Opened': 'Closed'} by ${d.assignee? d.assignee.replace('_'," ").toUpperCase(): 'NO NAME'}</span>
                                     </p>
                                     <p class="flex items-center gap-2">
                                         <i class="fa-solid fa-circle text-[4px]"></i>
@@ -415,7 +415,7 @@ const displayModal = (d) => {
                             <div class="middle-details-modal flex justify-start gap- items-center">
                                 <div class="w-[300px] p-4">
                                     <p class="text-sm font-[400px] text-[#64748bFF]">Assignee:</p>
-                                    <p class="text-sm font-[400px]">${d.assignee.replace('_'," ").toUpperCase()}</p>
+                                    <p class="text-sm font-[400px]">${d.assignee?d.assignee.replace('_'," ").toUpperCase():'NO NAME'}</p>
                                 </div>
                                 <div class="w-[300px]">
                                     <p class="text-sm font-[400px] text-[#64748bFF]">Priority:</p>
