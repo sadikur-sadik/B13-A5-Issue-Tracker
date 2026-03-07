@@ -135,6 +135,8 @@ const soloIssues = async (id) =>{
         else if(d.priority === 'medium') { priorityColor.push('border-yellow-600','bg-yellow-100', 'text-yellow-600 ')  }
         else{ priorityColor.push('border-gray-800','bg-gray-300', 'text-gray-800 ')  }
 
+        const dateCreated = d.createdAt.slice(0, 10);
+        const dateUpdated = d.updatedAt.slice(0, 10);
         
 
         const buttonsLabel = d.labels.map((label) => { 
@@ -174,19 +176,19 @@ const soloIssues = async (id) =>{
                 <hr class="w-full my-3 border border-gray-400">
                 <div class="p-4 space-y-2 flex justify-between items-center">
                     <div>
-                     <p class="text-[#64748bFF] font-[400px]">
+                     <p class="text-[#64748bFF] text-[12px] font-[400px]">
                         ${d.author ? d.author.replace('_'," ").toUpperCase():'NO NAME'}
                     </p>
-                    <p class="text-[#64748bFF] font-[400px]">
-                        1/7/2024
+                    <p class="text-[#64748bFF] text-[12px] font-[400px]">
+                        ${dateCreated}
                     </p>
                     </div>
                     <div>
-                     <p class="text-[#64748bFF] font-[400px]">
+                     <p class="text-[#64748bFF] text-[12px] font-[400px]">
                         ${d.assignee ? d.assignee.replace('_'," ").toUpperCase() : 'NO NAME'}
                     </p>
-                    <p class="text-[#64748bFF] font-[400px]">
-                        1/7/2024
+                    <p class="text-[#64748bFF] text-[12px] font-[400px]">
+                        ${dateUpdated}
                     </p>
                     </div>
                 </div>
@@ -202,7 +204,7 @@ const soloIssues = async (id) =>{
 };
 
 const displayOpen = (data) => {
-
+        
        const closedImage = '<img class="w-full h-full" src="./assets/Closed- Status .png" alt="">';
     
     const issueContainer = document.querySelector('#issue-container');
@@ -210,8 +212,10 @@ const displayOpen = (data) => {
     issueContainer.innerHTML = '';
 
     data.forEach(d => {
-        
-    
+
+
+        const dateCreated = d.createdAt.slice(0, 10);
+        const dateUpdated = d.updatedAt.slice(0, 10);
 
         let priorityColor = [];
 
@@ -262,7 +266,7 @@ const displayOpen = (data) => {
                         ${d.author ? d.author.replace('_'," ").toUpperCase():'NO NAME'}
                     </p>
                     <p class="text-[#64748bFF] font-[400px]">
-                        1/7/2024
+                        ${dateCreated}
                     </p>
                     </div>
                     <div>
@@ -270,7 +274,7 @@ const displayOpen = (data) => {
                         ${d.assignee ? d.assignee.replace('_'," ").toUpperCase() : 'NO NAME'}
                     </p>
                     <p class="text-[#64748bFF] font-[400px]">
-                        1/7/2024
+                        ${dateUpdated}
                     </p>
                     </div>
                 </div>
@@ -295,7 +299,8 @@ const displayClosed = (data) => {
 
     data.forEach(d => {
         
-    
+        const dateCreated = d.createdAt.slice(0, 10);
+        const dateUpdated = d.updatedAt.slice(0, 10);
 
         let priorityColor = [];
 
@@ -346,7 +351,7 @@ const displayClosed = (data) => {
                         ${d.author ? d.author.replace('_'," ").toUpperCase():'NO NAME'}
                     </p>
                     <p class="text-[#64748bFF] font-[400px]">
-                        1/7/2024
+                        ${dateCreated}
                     </p>
                     </div>
                     <div>
@@ -354,7 +359,7 @@ const displayClosed = (data) => {
                         ${d.assignee ? d.assignee.replace('_'," ").toUpperCase() : 'NO NAME'}
                     </p>
                     <p class="text-[#64748bFF] font-[400px]">
-                        1/7/2024
+                        ${dateUpdated}
                     </p>
                     </div>
                 </div>
@@ -375,8 +380,9 @@ const displayModal = (d) => {
     let myColor = ''
     
     modalContainer.innerHTML = '';
-    
-    
+
+            const dateCreated = d.createdAt.slice(0, 10);
+            const dateUpdated = d.updatedAt.slice(0, 10);
         
             let priorityColor = [];
 
@@ -420,7 +426,7 @@ const displayModal = (d) => {
                                     </p>
                                     <p class="flex items-center gap-2">
                                         <i class="fa-solid fa-circle text-[4px]"></i>
-                                        <span class="opened-date-head text-[12px] font-[400px] text-[#64748bFF]">  10.12.2004</span>
+                                        <span class="opened-date-head text-[12px] font-[400px] text-[#64748bFF]">  ${dateCreated}</span>
                                     </p>
                                 </div>
                            </div>
