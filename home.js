@@ -420,6 +420,7 @@ const displayModal = (d) => {
                                 <h2 class="text-2xl font-bold">${d.title}</h2>
                                 <div class="opening-modal-head flex items-center gap-4">
                                     <button class="${myColor} rounded-2xl font-light text-sm px-1 text-white ">${d.status === 'open' ? 'Opened': 'Closed'}</button>
+                                    <div class="sm:flex gap-4">
                                     <p class="flex items-center gap-2">
                                         <i class="fa-solid fa-circle text-[4px]"></i>
                                         <span class="opened-by-head   text-[12px] font-[400px] text-[#64748bFF]"> ${d.status === 'open' ? 'Opened': 'Closed'} by ${d.author? d.author.replace('_'," ").toUpperCase(): 'NO NAME'}</span>
@@ -428,6 +429,7 @@ const displayModal = (d) => {
                                         <i class="fa-solid fa-circle text-[4px]"></i>
                                         <span class="opened-date-head text-[12px] font-[400px] text-[#64748bFF]">  ${dateCreated}</span>
                                     </p>
+                                    </div>
                                 </div>
                            </div>
                            <div id="modal-buttons">
