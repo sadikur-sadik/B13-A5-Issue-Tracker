@@ -155,15 +155,15 @@ const soloIssues = async (id) =>{
         // HTML GENERATION
 
         issueContainer.innerHTML += `
-                    <div id="card" class="rounded-lg w-[300px] shadow-2xl border border-gray-50 border-t-6 ${brColor}" onclick="soloIssues(${d.id})">
-                <div class="space-y-3 p-4">
+                    <div id="card" class="rounded-lg w-full md:space-y-5 space-y-8 shadow-2xl border border-gray-50 border-t-6 ${brColor}" onclick="soloIssues(${d.id})">
+                <div class="md:space-y-3 space-y-5 p-4">
                     <div class="flex justify-between items-center gap-3">
                         <div class="w-8 h-8">
                             ${d.status === 'open' ? openImage : closedImage}
                         </div>
                         <button class="${priorityColor.join(' ')}  p-1 w-20 rounded-4xl">${d.priority}</button>
                     </div>
-                    <div class="space-y-3 h-[107px]">
+                    <div class="md:space-y-3 space-y-5 h-[107px]">
                         <h3 class="text-sm font-semibold h-[34px]">${d.title}</h3>
                         <p class="text-[12px] font-[400px] text-[#64748bFF] line-clamp-2">
                             ${d.description}
@@ -241,15 +241,15 @@ const displayOpen = (data) => {
         // HTML GENERATION
 
         issueContainer.innerHTML += `
-                    <div id="card" class="rounded-lg w-[300px] shadow-2xl border border-gray-50 border-t-6 border-t-green-500" onclick="soloIssues(${d.id})">
-                <div class="space-y-3 p-4">
+                    <div id="card" class="rounded-lg w-full md:space-y-5 space-y-8 shadow-2xl border border-gray-50 border-t-6 border-t-green-500" onclick="soloIssues(${d.id})">
+                <div class="md:space-y-3 space-y-5 p-4">
                     <div class="flex justify-between items-center gap-3">
                         <div class="w-8 h-8">
                             <img class="w-full h-full" src="./assets/Open-Status.png" alt="" >
                         </div>
                         <button class="${priorityColor.join(' ')}  p-1 w-20 rounded-4xl">${d.priority}</button>
                     </div>
-                    <div class="space-y-3 h-[107px]">
+                    <div class="md:space-y-3 space-y-5 h-[107px]">
                         <h3 class="text-sm font-semibold h-[34px]">${d.title}</h3>
                         <p class="text-[12px] font-[400px] text-[#64748bFF] line-clamp-2">
                             ${d.description}
@@ -326,15 +326,15 @@ const displayClosed = (data) => {
         // HTML GENERATION
 
         issueContainer.innerHTML += `
-                    <div id="card" class="rounded-lg w-[300px] shadow-2xl border border-gray-50 border-t-6 border-t-purple-500" onclick="soloIssues(${d.id})">
-                <div class="space-y-3 p-4">
+                    <div id="card" class="rounded-lg w-full md:space-y-5 space-y-8 shadow-2xl border border-gray-50 border-t-6 border-t-purple-500" onclick="soloIssues(${d.id})">
+                <div class="md:space-y-3 space-y-5 p-4">
                     <div class="flex justify-between items-center gap-3">
                         <div class="w-8 h-8">
                             <img class="w-full h-full" src="./assets/Closed- Status .png" alt="">
                         </div>
                         <button class="${priorityColor.join(' ')}  p-1 w-20 rounded-4xl">${d.priority}</button>
                     </div>
-                    <div class="space-y-3 h-[107px]">
+                    <div class="md:space-y-3 space-y-5 h-[107px]">
                         <h3 class="text-sm font-semibold h-[34px]">${d.title}</h3>
                         <p class="text-[12px] font-[400px] text-[#64748bFF] line-clamp-2">
                             ${d.description}
