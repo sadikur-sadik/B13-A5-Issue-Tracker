@@ -1,4 +1,32 @@
+        // Resuable functions
 
+const attachmentColor = (label , buttonClasses) => {
+
+            if(label === 'bug'){ buttonClasses.push('border-red-500' , 'bg-red-100' , 'text-red-500') }
+            else if(label === 'enhancement' ){buttonClasses.push('border-green-500' , 'bg-green-100' , 'text-green-500')}
+            else if(label === 'help wanted'){buttonClasses.push('border-yellow-700' , 'bg-yellow-100' , 'text-yellow-700')}
+            else if(label === 'documentation'){buttonClasses.push('border-blue-500' , 'bg-blue-100' , 'text-blue-500')}
+            else if(label === 'good first issue'){buttonClasses.push('border-pink-500' , 'bg-pink-100' , 'text-pink-500')};
+};
+const priorityBtnColor = (d,priorityColor) => {
+            if(d.priority === 'high'){ priorityColor.push('border-red-600','bg-red-100', 'text-red-600 ') }
+        else if(d.priority === 'medium') { priorityColor.push('border-yellow-600','bg-yellow-100', 'text-yellow-600 ')  }
+        else{ priorityColor.push('border-gray-800','bg-gray-300', 'text-gray-800 ')  }
+};
+const myColorUpdate = (d) => {
+            let myColor = '';
+            if(d.status === 'open'){
+              myColor = 'bg-green-600'
+            }
+            else{
+              myColor = 'bg-purple-600'
+            };
+
+            return myColor;
+}
+
+
+// Loading UI
 
 const showLoading = () => {
     const loadingSpinner =document.querySelector('#loadSpinner');
@@ -12,6 +40,7 @@ const endLoading = () => {
     loadingSpinner.classList.remove('flex');
     document.querySelector('#issue-container').classList.remove('hidden')
 };
+
 // toggle 
 const buttonToggling = (id) => {
 
@@ -36,7 +65,7 @@ const buttonToggling = (id) => {
 
 }
 
-
+// Data Loads
  const loadAllIssues = async () => {
     showLoading();
     const url = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
@@ -105,7 +134,9 @@ const soloIssues = async (id) =>{
     displayModal(data.data);
     document.querySelector('#my_modal_5').showModal();
 
-}
+};
+
+// displaying Data 
 
  const displayAllIssues = (data) => {
     const issueCount = document.querySelector('#issue-count');
@@ -130,10 +161,8 @@ const soloIssues = async (id) =>{
         };
 
         let priorityColor = [];
+        priorityBtnColor(d,priorityColor);
 
-        if(d.priority === 'high'){ priorityColor.push('border-red-600','bg-red-100', 'text-red-600 ') }
-        else if(d.priority === 'medium') { priorityColor.push('border-yellow-600','bg-yellow-100', 'text-yellow-600 ')  }
-        else{ priorityColor.push('border-gray-800','bg-gray-300', 'text-gray-800 ')  }
 
         const dateCreated = d.createdAt.slice(0, 10);
         const dateUpdated = d.updatedAt.slice(0, 10);
@@ -141,11 +170,7 @@ const soloIssues = async (id) =>{
 
         const buttonsLabel = d.labels.map((label) => { 
             let buttonClasses = [];
-            if(label === 'bug'){ buttonClasses.push('border-red-500' , 'bg-red-100' , 'text-red-500') }
-            else if(label === 'enhancement' ){buttonClasses.push('border-green-500' , 'bg-green-100' , 'text-green-500')}
-            else if(label === 'help wanted'){buttonClasses.push('border-yellow-700' , 'bg-yellow-100' , 'text-yellow-700')}
-            else if(label === 'documentation'){buttonClasses.push('border-blue-500' , 'bg-blue-100' , 'text-blue-500')}
-            else if(label === 'good first issue'){buttonClasses.push('border-pink-500' , 'bg-pink-100' , 'text-pink-500')}
+            attachmentColor(label , buttonClasses);
 
             return `<button class="border ${buttonClasses.join(' ')}  font-medium rounded-2xl p-1"> ${label} </button>` });
         
@@ -203,6 +228,7 @@ const soloIssues = async (id) =>{
 
 };
 
+
 const displayOpen = (data) => {
         
        const closedImage = '<img class="w-full h-full" src="./assets/Closed- Status .png" alt="">';
@@ -219,19 +245,13 @@ const displayOpen = (data) => {
 
         let priorityColor = [];
 
-        if(d.priority === 'high'){ priorityColor.push('border-red-600','bg-red-100', 'text-red-600 ') }
-        else if(d.priority === 'medium') { priorityColor.push('border-yellow-600','bg-yellow-100', 'text-yellow-600 ')  }
-        else{ priorityColor.push('border-gray-800','bg-gray-300', 'text-gray-800 ')  }
+        priorityBtnColor(d,priorityColor);
 
         
 
         const buttonsLabel = d.labels.map((label) => { 
             let buttonClasses = [];
-            if(label === 'bug'){ buttonClasses.push('border-red-500' , 'bg-red-100' , 'text-red-500') }
-            else if(label === 'enhancement' ){buttonClasses.push('border-green-500' , 'bg-green-100' , 'text-green-500')}
-            else if(label === 'help wanted'){buttonClasses.push('border-yellow-700' , 'bg-yellow-100' , 'text-yellow-700')}
-            else if(label === 'documentation'){buttonClasses.push('border-blue-500' , 'bg-blue-100' , 'text-blue-500')}
-            else if(label === 'good first issue'){buttonClasses.push('border-pink-500' , 'bg-pink-100' , 'text-pink-500')}
+            attachmentColor(label , buttonClasses);
 
             return `<button class="border ${buttonClasses.join(' ')}  font-medium rounded-2xl p-1"> ${label} </button>` });
         
@@ -304,19 +324,13 @@ const displayClosed = (data) => {
 
         let priorityColor = [];
 
-        if(d.priority === 'high'){ priorityColor.push('border-red-600','bg-red-100', 'text-red-600 ') }
-        else if(d.priority === 'medium') { priorityColor.push('border-yellow-600','bg-yellow-100', 'text-yellow-600 ')  }
-        else{ priorityColor.push('border-gray-800','bg-gray-300', 'text-gray-800 ')  }
+        priorityBtnColor(d,priorityColor);
 
         
 
         const buttonsLabel = d.labels.map((label) => { 
             let buttonClasses = [];
-            if(label === 'bug'){ buttonClasses.push('border-red-500' , 'bg-red-100' , 'text-red-500') }
-            else if(label === 'enhancement' ){buttonClasses.push('border-green-500' , 'bg-green-100' , 'text-green-500')}
-            else if(label === 'help wanted'){buttonClasses.push('border-yellow-700' , 'bg-yellow-100' , 'text-yellow-700')}
-            else if(label === 'documentation'){buttonClasses.push('border-blue-500' , 'bg-blue-100' , 'text-blue-500')}
-            else if(label === 'good first issue'){buttonClasses.push('border-pink-500' , 'bg-pink-100' , 'text-pink-500')}
+            attachmentColor(label , buttonClasses);
 
             return `<button class="border ${buttonClasses.join(' ')}  font-medium rounded-2xl p-1"> ${label} </button>` });
         
@@ -375,10 +389,11 @@ const displayClosed = (data) => {
 
 };
 
+// modal 
+
 const displayModal = (d) => {
     const modalContainer = document.querySelector('#modal-section');
-    let myColor = ''
-    
+    const myColor = myColorUpdate(d);
     modalContainer.innerHTML = '';
 
             const dateCreated = d.createdAt.slice(0, 10);
@@ -386,26 +401,15 @@ const displayModal = (d) => {
         
             let priorityColor = [];
 
-            if(d.priority === 'high'){ priorityColor.push('border-red-600','bg-red-100', 'text-red-600 ') }
-            else if(d.priority === 'medium') { priorityColor.push('border-yellow-600','bg-yellow-100', 'text-yellow-600 ')  }
-            else{ priorityColor.push('border-gray-800','bg-gray-300', 'text-gray-800 ')  };
+            priorityBtnColor(d,priorityColor);
 
 
             const buttonsLabel = d.labels.map((label) => { 
             let buttonClasses = [];
-            if(label === 'bug'){ buttonClasses.push('border-red-500' , 'bg-red-100' , 'text-red-500') }
-            else if(label === 'enhancement' ){buttonClasses.push('border-green-500' , 'bg-green-100' , 'text-green-500')}
-            else if(label === 'help wanted'){buttonClasses.push('border-yellow-700' , 'bg-yellow-100' , 'text-yellow-700')}
-            else if(label === 'documentation'){buttonClasses.push('border-blue-500' , 'bg-blue-100' , 'text-blue-500')}
-            else if(label === 'good first issue'){buttonClasses.push('border-pink-500' , 'bg-pink-100' , 'text-pink-500')}
+            attachmentColor(label , buttonClasses);
 
             
-            if(d.status === 'open'){
-              myColor = 'bg-green-600'
-            }
-            else{
-              myColor = 'bg-purple-600'
-            }
+
 
             return `<button class="border ${buttonClasses.join(' ')}  font-medium rounded-2xl p-1"> ${label} </button>` });
         

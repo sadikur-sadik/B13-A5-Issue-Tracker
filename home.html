@@ -42,18 +42,18 @@
 
     <!-- main -->
 
-    <main class="space-y-5 max-w-[1300px] mx-auto mt-[60px]">
+    <main class="space-y-5 max-w-[1300px] w-[90%]  mx-auto mt-[60px]">
         <div class="md:space-x-2 space-x-1">
             <button id="all-btn" onclick="loadAllIssues()" class="btn bg-[#4a00ffFF] text-white border rounded-md w-[60px] md:w-[120px] h-10">All</button>
             <button id="open-btn"   onclick="loadSelectiveIssues('open')"  class="btn  border  rounded-xl w-[60px] md:w-[120px] h-10">Open</button>
             <button id="closed-btn" onclick="loadSelectiveIssues('closed')" class="btn  border rounded-xl w-[60px] md:w-[120px] h-10">Closed</button>
         </div>
-        <div class="rounded-xl shadow-2xl flex justify-between items-center p-6">
+        <div class="rounded-xl shadow-2xl flex sm:flex-row sm:gap-0 gap-2 flex-col justify-between border border-gray-300 items-center p-6">
             <div class="flex items-center justify-center gap-2">
                 <div class="md:w-[50px] w-8 h-8 md:h-[50px]">
                     <img class="w-full h-full" src="./assets/Aperture.png" alt="">
                 </div>
-                <div class="flex flex-col gap-0">
+                <div class="flex flex-col sm:text-left text-center gap-0">
                     <p class="issue-count md:font-semibold font-medium text-md md:text-xl"><span id="issue-count">50</span> Issues</p>
                     <p class="text-gray-500 md:font-semibold font-medium text-md md:text-xl">Track and manage your project issues</p>
                 </div>
@@ -63,7 +63,7 @@
                 <div class="flex items-center gap-2"><p class="bg-purple-700 h-3 w-3 rounded-full"></p>Closed</div>
             </div>
         </div>
-        <section id="issue-container" class="shadow-2xl p-6 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3">
+        <section id="issue-container" class=" grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3">
             <!-- <div id="card" class="rounded-lg w-[256.5px] shadow-2xl border border-gray-100 ">
                 <div class="space-y-3 p-4">
                     <div class="flex justify-between items-center gap-3">

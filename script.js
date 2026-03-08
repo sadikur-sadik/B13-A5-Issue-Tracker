@@ -14,7 +14,7 @@ document.querySelector('.login').addEventListener('click',()=>{
 
     if(userName === myUserName && password === myPassword){
 
-        window.location.href = "./home.html"
+        window.location.href = "./home.html";
     }
     else{
        failed.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Login Failed. Try again';
