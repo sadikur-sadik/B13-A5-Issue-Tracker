@@ -1,129 +1,37 @@
-# 🌟 Welcome To (সহজ সরল সিম্পল) Assignment - 5
-
-# **📅 Deadline For 60 marks:** 9th March, 2026 (11:59 pm ⏱️)  
-#  📅 No Deadline For 50 marks  
-# **📅 Deadline For 30 marks:** Any time after 9th March.
-
----
-
-# Assignment-05: GitHub Issues Tracker
-
-
-### **API Endpoints:**
-###  **All Issues:** 
-  - https://phi-lab-server.vercel.app/api/v1/lab/issues 
-
-
-###  **Single Issue:**
-   - https://phi-lab-server.vercel.app/api/v1/lab/issue/{id}
-
-   - Example: https://phi-lab-server.vercel.app/api/v1/lab/issue/33
-
-
-###  **Search Issue:** https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q={searchText}
-
-   - Example:  https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=notifications
-
-
----
-
-## 📝 Main Requirements
-
-## 🎨 Design Part
-
-## Login Page
-- Create a login page containing a logo, title, and sub-title
-- Below that, there will be 2 inputs, a sign-in button, and a demo credential to sign in. Follow the Figma for this page 
-- Styled as per Figma
-
-## Main Page: 
-
-### Navbar: 
-
-- Navbar with website logo/name on the left
-- Search input and button on the right
-
-### Tab Section like Figma: 
-
-- 3 tab ( All, Open, Closed) at the top of this section.(**All**, **Open**, **Closed**)
-
-- Below the tab, there will be an icon, the issue count, some text on the left, and an open and closed marker on the right
-
-- Responsiveness: The website should be responsive for mobile devices. It is totally up to you. 
-
-
---- 
-
-
-## ⚙️ Functionalities
-- In login page, there will be default admin credentials (username, password). You need to sign in using these credentials.
-
-- Load all issues and display as per Figma
-
-- On clicking on an open or closed tab, it will load the issues data of the related tab and show it in a display-like card in a 4-column layout like Figma. By default, it will show all data 
-
-- Each card shows:
-  - Title
-  - Description
-  - Status
-  - Category
-  - Author
-  - Priority
-  - Label
-  - CreatedAt
-- Clicking on an issue  card will open a modal and show all the information about that Issue. 
-
-### 🚀 Challenges
-
-
-- Show the card Top border based on their category(open, closed), open card will have Green Boder, closed card will have a purple border on top. 
-
-- Loading spinner on data load
-
-- Show active button on changing category names
-
-- Implement Search Functionality and 8 meaningful github commit.  
-
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
+ 
     - 1️⃣ What is the difference between var, let, and const?
+    ans: - var: (1) creates global scope , (2) value is re-assignable (3) re-declarable with same name 
+         - const:(1) creates block scope (different from var) , (2) value is not re-assignable (diff from both let and var) 
+                 (3)  not re-declarable with same name (different from var)
+         - let:  (1) creates block scope (different from var) , (2) value is re-assignable (diff from const) 
+                 (3) not re-declarable with same name (different from var)
     - 2️⃣ What is the spread operator (...)?
+       ans: It is like loop. It spreads the items. Like, we can get array properties separately by it, we can geevery word from a string by it etc. 
+       For example: let a = [1, 2 , 3]; let b = [a] // means b = [[1,2,3]];
+       but b = [...a] //  means b = [1,2,3] 
+
+
     - 3️⃣ What is the difference between map(), filter(), and forEach()?
+
+    (1)map(): it performs the given condition and returns a new array.
+    for example: [1,2,3].map(e =>e*2) // it will return a new array which is [2,4,6]. but for multiline code we have to write return.
+
+    (2)filter(): it matches condition. if the ondition is correct, it will keep, else it will not take it.
+    for example: [1,2,3,4].filter(e =>e%2 === 0) // it will return a new array which is [2,4].
+
+    (3)forEach(): it almost acts like for of loop. I gives us each value of an array separately but not an array.
+    for example: [1,2,3,4].forEach(e => {console.log(e)}) // it will give us 1 2 3 4.
+
     - 4️⃣ What is an arrow function?
+    ans: it is a shortcut of function where we 
+         - dont need to write key word function.
+         - dont need to write () if there is single parameter.
+         - dont need to write {} and return for single line code.
+
+         for example: [1,2,3].map(e =>e*2) // here function (e){return e*2} is the the full form
     - 5️⃣ What are template literals?
-
-
----
-
-## 🛠️ Technology Stack
-
-- **HTML**
-- **CSS** (Vanilla/Tailwind/DaisyUI)
-- **JavaScript** (Vanilla)
-
----
-
-## 🔑 Demo Credentials
-
-```text
-Username: admin
-Password: admin123
-```
-
-
----
-
-### Optional: 
- - No need to show status: Open, Closed styles On modals. 
- - No Need to show icon on labels 
- - No need to apply styles on Priority 
---- 
-
-
-## 📤 What to submit
-
-- **GitHub Repository Link:**
-- **Live Site Link:**
-
----
-
+    ans:it is a way to create string but it has some benefits -
+      (1) can take values of variables by ${}.
+      (2) can write multi line codes without \n
+      (3) can do operation inside a string by ${};
 
