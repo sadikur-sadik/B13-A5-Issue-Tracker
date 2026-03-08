@@ -1,12 +1,12 @@
  
     - 1️⃣ What is the difference between var, let, and const?
-    ans: - var: (1) creates global scope , (2) value is re-assignable (3) re-declarable with same name 
+    ans: - var: (1) creates global scope and function scope , (2) value is re-assignable (3) re-declarable with same name 
          - const:(1) creates block scope (different from var) , (2) value is not re-assignable (diff from both let and var) 
                  (3)  not re-declarable with same name (different from var)
          - let:  (1) creates block scope (different from var) , (2) value is re-assignable (diff from const) 
                  (3) not re-declarable with same name (different from var)
     - 2️⃣ What is the spread operator (...)?
-       ans: It is like loop. It spreads the items. Like, we can get array properties separately by it, we can geevery word from a string by it etc. 
+       ans: - It spreads the items. Like, we can get array properties separately by it, we can get every word from a string by it and can use in object too. 
        For example: let a = [1, 2 , 3]; let b = [a] // means b = [[1,2,3]];
        but b = [...a] //  means b = [1,2,3] 
 
@@ -20,7 +20,7 @@
     for example: [1,2,3,4].filter(e =>e%2 === 0) // it will return a new array which is [2,4].
 
     (3)forEach(): it almost acts like for of loop. I gives us each value of an array separately but not an array.
-    for example: [1,2,3,4].forEach(e => {console.log(e)}) // it will give us 1 2 3 4.
+    for example: [1,2,3,4].forEach(e => {console.log(e)}) // it will give us 1 2 3 4. it returns nothing.
 
     - 4️⃣ What is an arrow function?
     ans: it is a shortcut of function where we 
@@ -32,6 +32,6 @@
     - 5️⃣ What are template literals?
     ans:it is a way to create string but it has some benefits -
       (1) can take values of variables by ${}.
-      (2) can write multi line codes without \n
+      (2) can write multiline codes without \n.
       (3) can do operation inside a string by ${};
 
