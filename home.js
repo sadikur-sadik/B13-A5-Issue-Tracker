@@ -23,7 +23,21 @@ const myColorUpdate = (d) => {
             };
 
             return myColor;
-}
+};
+
+
+const labelImageUpdate = (label) => {
+
+    let myIcon = '' ; 
+
+    if(label === 'bug'){ myIcon = '<i class="fa-solid fa-bug"></i>'}
+    else if(label === 'help wanted'){myIcon = '<i class="fa-solid fa-life-ring"></i>'  }
+    else if(label === 'enhancement'){myIcon = '<i class="fa-solid fa-seedling"></i>'  }
+    else if(label === 'documentation'){myIcon = '<i class="fa-solid fa-draw-polygon"></i>'  }
+    else{myIcon = '<i class="fa-brands fa-yelp"></i>'};
+
+    return myIcon;
+};
 
 
 // Loading UI
@@ -170,9 +184,10 @@ const soloIssues = async (id) =>{
 
         const buttonsLabel = d.labels.map((label) => { 
             let buttonClasses = [];
+            let labelIcon = labelImageUpdate(label);
             attachmentColor(label , buttonClasses);
 
-            return `<button class="border ${buttonClasses.join(' ')}   rounded-2xl px-1"> ${label} </button>` });
+            return `<button class="border ${buttonClasses.join(' ')} uppercase text-xs md:text-md rounded-2xl px-1"> ${labelIcon} ${label} </button>` });
         
         const buttons = buttonsLabel.join(' ');
 
@@ -181,19 +196,19 @@ const soloIssues = async (id) =>{
 
         issueContainer.innerHTML += `
                     <div id="card" class="rounded-lg w-full md:space-y-5 space-y-8 shadow-2xl border border-gray-50 border-t-6 ${brColor}" onclick="soloIssues(${d.id})">
-                <div class="md:space-y-3 space-y-5 p-4">
+                <div class="md:space-y-3 space-y-5 sm:p-4 lg:p-2 xl:p-4 p-2">
                     <div class="flex justify-between items-center gap-3">
                         <div class="w-8 h-8">
                             ${d.status === 'open' ? openImage : closedImage}
                         </div>
-                        <button class="${priorityColor.join(' ')}  p-1 w-20 rounded-4xl">${d.priority}</button>
+                        <button class="${priorityColor.join(' ')} uppercase p-1 w-20 rounded-4xl">${d.priority}</button>
                     </div>
                     <div class="md:space-y-3 space-y-5 h-[107px]">
                         <h3 class="text-sm font-semibold h-[34px]">${d.title}</h3>
                         <p class="text-[12px] font-[400px] text-[#64748bFF] line-clamp-2">
                             ${d.description}
                         </p>
-                        <div class="space-x-1 h-6">
+                        <div class="md:space-x-1 space-x-0 h-6">
                             ${buttons}
                         </div>
                     </div>
@@ -251,9 +266,10 @@ const displayOpen = (data) => {
 
         const buttonsLabel = d.labels.map((label) => { 
             let buttonClasses = [];
+            let labelIcon = labelImageUpdate(label);
             attachmentColor(label , buttonClasses);
 
-            return `<button class="border ${buttonClasses.join(' ')} rounded-2xl px-1"> ${label} </button>` });
+            return `<button class="border ${buttonClasses.join(' ')} uppercase text-xs md:text-md rounded-2xl px-1"> ${labelIcon} ${label} </button>` });
         
         const buttons = buttonsLabel.join(' ')
 
@@ -262,12 +278,12 @@ const displayOpen = (data) => {
 
         issueContainer.innerHTML += `
                     <div id="card" class="rounded-lg w-full md:space-y-5 space-y-8 shadow-2xl border border-gray-50 border-t-6 border-t-green-500" onclick="soloIssues(${d.id})">
-                <div class="md:space-y-3 space-y-5 p-4">
+                <div class="md:space-y-3 space-y-5 sm:p-4 lg:p-2 xl:p-4 p-2">
                     <div class="flex justify-between items-center gap-3">
                         <div class="w-8 h-8">
                             <img class="w-full h-full" src="./assets/Open-Status.png" alt="" >
                         </div>
-                        <button class="${priorityColor.join(' ')}  p-1 w-20 rounded-4xl">${d.priority}</button>
+                        <button class="${priorityColor.join(' ')} uppercase  p-1 w-20 rounded-4xl">${d.priority}</button>
                     </div>
                     <div class="md:space-y-3 space-y-5 h-[107px]">
                         <h3 class="text-sm font-semibold h-[34px]">${d.title}</h3>
@@ -330,9 +346,10 @@ const displayClosed = (data) => {
 
         const buttonsLabel = d.labels.map((label) => { 
             let buttonClasses = [];
+            let labelIcon = labelImageUpdate(label);
             attachmentColor(label , buttonClasses);
 
-            return `<button class="border ${buttonClasses.join(' ')} rounded-2xl px-1"> ${label} </button>` });
+            return `<button class="border ${buttonClasses.join(' ')} uppercase text-xs md:text-md rounded-2xl px-1"> ${labelIcon} ${label} </button>` });
         
         const buttons = buttonsLabel.join(' ')
 
@@ -341,12 +358,12 @@ const displayClosed = (data) => {
 
         issueContainer.innerHTML += `
                     <div id="card" class="rounded-lg w-full md:space-y-5 space-y-8 shadow-2xl border border-gray-50 border-t-6 border-t-purple-500" onclick="soloIssues(${d.id})">
-                <div class="md:space-y-3 space-y-5 p-4">
+                <div class="md:space-y-3 space-y-5 sm:p-4 lg:p-2 xl:p-4 p-2">
                     <div class="flex justify-between items-center gap-3">
                         <div class="w-8 h-8">
                             <img class="w-full h-full" src="./assets/Closed- Status .png" alt="">
                         </div>
-                        <button class="${priorityColor.join(' ')}  p-1 w-20 rounded-4xl">${d.priority}</button>
+                        <button class="${priorityColor.join(' ')} uppercase  p-1 w-20 rounded-4xl">${d.priority}</button>
                     </div>
                     <div class="md:space-y-3 space-y-5 h-[107px]">
                         <h3 class="text-sm font-semibold h-[34px]">${d.title}</h3>
@@ -406,18 +423,19 @@ const displayModal = (d) => {
 
             const buttonsLabel = d.labels.map((label) => { 
             let buttonClasses = [];
+            let labelIcon = labelImageUpdate(label);
             attachmentColor(label , buttonClasses);
 
             
 
 
-            return `<button class="border ${buttonClasses.join(' ')} rounded-2xl px-1"> ${label} </button>` });
+            return `<button class="border ${buttonClasses.join(' ')} uppercase text-xs md:text-md rounded-2xl px-1"> ${labelIcon} ${label} </button>` });
         
             const buttons = buttonsLabel.join(' ');
 
             modalContainer.innerHTML = `
               
-                <dialog id="my_modal_5" class="modal ">
+                <dialog id="my_modal_5" class="modal">
                     <div class="modal-box m-8">
                         <div class="modal-designs space-y-4">
                            <div class="heading-modal space-y-2">
@@ -448,7 +466,7 @@ const displayModal = (d) => {
                                 </div>
                                 <div class="w-[300px]">
                                     <p class="text-sm font-[400px] text-[#64748bFF]">Priority:</p>
-                                    <button class="border ${priorityColor.join(' ')} font-medium rounded-2xl px-1">${d.priority}</button>
+                                    <button class="border ${priorityColor.join(' ')}   font-medium uppercase rounded-2xl px-1">${d.priority}</button>
                                 </div>
                             </div>
                         </div>
@@ -482,19 +500,3 @@ loadAllIssues();
 
 
 
-// "data": [
-// {
-// "id": 1,
-// "title": "Fix navigation menu on mobile devices",
-// "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
-// "status": "open",
-// "labels": [
-// "bug",
-// "help wanted"
-// ],
-// "priority": "high",
-// "author": "john_doe",
-// "assignee": "jane_smith",
-// "createdAt": "2024-01-15T10:30:00Z",
-// "updatedAt": "2024-01-15T10:30:00Z"
-// },
