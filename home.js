@@ -172,7 +172,7 @@ const soloIssues = async (id) =>{
             let buttonClasses = [];
             attachmentColor(label , buttonClasses);
 
-            return `<button class="border ${buttonClasses.join(' ')}  font-medium rounded-2xl p-1"> ${label} </button>` });
+            return `<button class="border ${buttonClasses.join(' ')}   rounded-2xl px-1"> ${label} </button>` });
         
         const buttons = buttonsLabel.join(' ');
 
@@ -253,7 +253,7 @@ const displayOpen = (data) => {
             let buttonClasses = [];
             attachmentColor(label , buttonClasses);
 
-            return `<button class="border ${buttonClasses.join(' ')}  font-medium rounded-2xl p-1"> ${label} </button>` });
+            return `<button class="border ${buttonClasses.join(' ')} rounded-2xl px-1"> ${label} </button>` });
         
         const buttons = buttonsLabel.join(' ')
 
@@ -332,7 +332,7 @@ const displayClosed = (data) => {
             let buttonClasses = [];
             attachmentColor(label , buttonClasses);
 
-            return `<button class="border ${buttonClasses.join(' ')}  font-medium rounded-2xl p-1"> ${label} </button>` });
+            return `<button class="border ${buttonClasses.join(' ')} rounded-2xl px-1"> ${label} </button>` });
         
         const buttons = buttonsLabel.join(' ')
 
@@ -411,7 +411,7 @@ const displayModal = (d) => {
             
 
 
-            return `<button class="border ${buttonClasses.join(' ')}  font-medium rounded-2xl p-1"> ${label} </button>` });
+            return `<button class="border ${buttonClasses.join(' ')} rounded-2xl px-1"> ${label} </button>` });
         
             const buttons = buttonsLabel.join(' ');
 

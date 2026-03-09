@@ -32,10 +32,10 @@
                 <h1 class="md:text-2xl text-xl font-medium md:font-semibold">GitHub Issues Tracker</h1>
               </div>
             </div>
-            <div class="flex gap-3 items-center">
-                <input type="text" placeholder="Search" id="search-issue-inp" class="input input-bordered w-full md:w-[300px] md:h-10 h-8" />
+            <div class="flex gap-3 justify-between items-center">
+                <input type="text" placeholder="Search" id="search-issue-inp" class="input input-bordered w-[70%] md:h-10 h-8" />
                 
-                    <button id="search-issue" class="btn bg-[#4a00ffFF] text-white  md:h-10 h-8 md:px-4 px:2 py:1 md:py-2 font:medium md:font-semibold rounded-md"><i class="fa-brands fa-sistrix"></i> Search Issue</button>
+                 <button id="search-issue" class="btn bg-[#4a00ffFF] text-white flex md:h-10 h-8 w-[28%] py:1 md:py-2 font:medium md:font-semibold rounded-md"><i class="fa-brands fa-sistrix"></i> Search</button>
                 
             </div>
         </div>
@@ -43,7 +43,7 @@
 
     <!-- main -->
 
-    <main class="space-y-5 max-w-[1300px] w-[90%]  mx-auto mt-[60px]">
+    <main class="space-y-5 max-w-[1300px] w-[90%]   mx-auto mt-[60px]">
         <div class="md:space-x-2 space-x-1">
             <button id="all-btn" onclick="loadAllIssues()" class="btn bg-[#4a00ffFF] text-white border rounded-md w-[60px] md:w-[120px] h-10">All</button>
             <button id="open-btn"   onclick="loadSelectiveIssues('open')"  class="btn  border  rounded-xl w-[60px] md:w-[120px] h-10">Open</button>
