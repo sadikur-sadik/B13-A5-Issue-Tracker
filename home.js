@@ -201,7 +201,7 @@ const soloIssues = async (id) =>{
                         <div class="w-8 h-8">
                             ${d.status === 'open' ? openImage : closedImage}
                         </div>
-                        <button class="${priorityColor.join(' ')} uppercase p-1 w-20 rounded-4xl">${d.priority}</button>
+                        <button class="${priorityColor.join(' ')} uppercase sm:font-semibold font-medium text-xs md:text-md p-1 w-20 rounded-4xl">${d.priority}</button>
                     </div>
                     <div class="md:space-y-3 space-y-5 h-[107px]">
                         <h3 class="text-sm font-semibold h-[34px]">${d.title}</h3>
@@ -283,7 +283,7 @@ const displayOpen = (data) => {
                         <div class="w-8 h-8">
                             <img class="w-full h-full" src="./assets/Open-Status.png" alt="" >
                         </div>
-                        <button class="${priorityColor.join(' ')} uppercase  p-1 w-20 rounded-4xl">${d.priority}</button>
+                        <button class="${priorityColor.join(' ')} uppercase text-xs md:text-md sm:font-semibold font-medium p-1 w-20 rounded-4xl">${d.priority}</button>
                     </div>
                     <div class="md:space-y-3 space-y-5 h-[107px]">
                         <h3 class="text-sm font-semibold h-[34px]">${d.title}</h3>
@@ -363,7 +363,7 @@ const displayClosed = (data) => {
                         <div class="w-8 h-8">
                             <img class="w-full h-full" src="./assets/Closed- Status .png" alt="">
                         </div>
-                        <button class="${priorityColor.join(' ')} uppercase  p-1 w-20 rounded-4xl">${d.priority}</button>
+                        <button class="${priorityColor.join(' ')} uppercase text-xs md:text-md sm:font-semibold font-medium p-1 w-20 rounded-4xl">${d.priority}</button>
                     </div>
                     <div class="md:space-y-3 space-y-5 h-[107px]">
                         <h3 class="text-sm font-semibold h-[34px]">${d.title}</h3>
@@ -466,7 +466,7 @@ const displayModal = (d) => {
                                 </div>
                                 <div class="w-[300px]">
                                     <p class="text-sm font-[400px] text-[#64748bFF]">Priority:</p>
-                                    <button class="border ${priorityColor.join(' ')}   font-medium uppercase rounded-2xl px-1">${d.priority}</button>
+                                    <button class="border ${priorityColor.join(' ')} text-xs md:text-md sm:font-semibold font-medium uppercase rounded-2xl px-1">${d.priority}</button>
                                 </div>
                             </div>
                         </div>
