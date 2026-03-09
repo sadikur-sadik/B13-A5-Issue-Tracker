@@ -16,10 +16,10 @@ const priorityBtnColor = (d,priorityColor) => {
 const myColorUpdate = (d) => {
             let myColor = '';
             if(d.status === 'open'){
-              myColor = 'bg-green-600'
+              myColor = 'bg-[#00a96eFF]'
             }
             else{
-              myColor = 'bg-purple-600'
+              myColor = 'bg-[#7C3AEDFF]'
             };
 
             return myColor;
@@ -423,7 +423,7 @@ const displayModal = (d) => {
                            <div class="heading-modal space-y-2">
                                 <h2 class="text-2xl font-bold">${d.title}</h2>
                                 <div class="opening-modal-head flex items-center gap-4">
-                                    <button class="${myColor} rounded-2xl font-light text-sm px-1 text-white ">${d.status === 'open' ? 'Opened': 'Closed'}</button>
+                                    <button class="${myColor} rounded-2xl font-medium text-md p-1 border border-none text-white ">${d.status === 'open' ? 'Opened': 'Closed'}</button>
                                     <div class="sm:flex gap-4">
                                     <p class="flex items-center gap-2">
                                         <i class="fa-solid fa-circle text-[4px]"></i>
